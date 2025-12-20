@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "header.html" %}
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+
+<body style="padding-top: 80px;">
+
+  <div class="container">
+    <h2>My Posts</h2>
+    {% if posts %}
+      {% for post in posts %}
+        <div class="post-preview">
+          <a href="{{ url_for('show_post', post_id=post.id) }}">
+            <h2>{{ post.title }}</h2>
+          </a>
+          <p>{{ post.subtitle }}</p>
+          <p><em>{{ post.date }}</em></p>
+        </div>
+        <hr>
+      {% endfor %}
+    {% else %}
+      <p>You haven't written any posts yet.</p>
+    {% endif %}
+
+    <h2>My Comments</h2>
+    {% if comments %}
+      {% for comment in comments %}
+        <div class="comment-preview">
+          <p>{{ comment.text }}</p>
+          <p><em>On <a href="{{ url_for('show_post', post_id=comment.post.id) }}">{{ comment.post.title }}</a></em></p>
+        </div>
+        <hr>
+      {% endfor %}
+    {% else %}
+      <p>You haven't commented on any posts yet.</p>
+    {% endif %}
+  </div>
+
+  {% include "footer.html" %}
+</body>
+</html>
