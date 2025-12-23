@@ -9,7 +9,7 @@
         <div class="post-heading">
           <h1>{{ post.title }}</h1>
           <h2 class="subheading">{{ post.subtitle }}</h2>
-          <h4 class="author">posted by: {{ post.author }}</h4>
+          <h5 class="author">posted by: {{ post.author }}</h5>
           <span class="meta">
 
 
@@ -50,7 +50,7 @@
             {% if comments %}
               {% for comment in comments %}
                 <div class="comment">
-                  <img src="{{ comment.author.email | gravatar }}" />
+                  <img src="{{ comment.author.email | gravatar }}" class ="comment-avater"/>
                   <p>{{ comment.text }}</p>
                   <small>by {{ comment.author.username }}</small>
                 </div>
