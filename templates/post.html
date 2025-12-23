@@ -50,7 +50,7 @@
             {% if comments %}
               {% for comment in comments %}
                 <div class="comment">
-                  <img src="{{ comment.author.email | gravatar }}" class ="comment-avater"/>
+                  <img src="{{ comment.author.email | gravatar }}" class ="comment-avatar"/>
                   <p>{{ comment.text }}</p>
                   <small>by {{ comment.author.username }}</small>
                 </div>
